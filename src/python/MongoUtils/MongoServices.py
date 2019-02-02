@@ -1,7 +1,4 @@
 import pymongo
-from pymongo import MongoClient
-import urllib.parse
-import bson
 from sshtunnel import SSHTunnelForwarder
 
 
