@@ -43,13 +43,13 @@ if len(tweets_to_label) == 0:
 # present to user
 print("Tweets classification started, type 1 for positive, 2 for negative, for 3 neutral, 4 undefined, 6 to exit")
 for tweet in tweets_to_label:
-    print(str(tweet) + "\n")
+    print(str(tweet))
     valid = False
     polarity = -1
     undefined = False
     finish = False
     while not valid:
-        choice = input("enter choice")
+        choice = input("enter choice: ")
         if choice == '1':
             polarity = 1
             valid = True
