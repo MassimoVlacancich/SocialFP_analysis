@@ -38,7 +38,7 @@ if len(tweets_to_label) == 0:
     with open(path_to_data, "w") as outfile:
         json.dump(tweets_to_label, outfile)
 
-
+print('Total tweets to label: ' + str(len(tweets_to_label)))
 # present to user
 print("Tweets classification started, type 1 for positive, 2 for negative, for 3 neutral, 4 undefined, 6 to exit")
 for tweet in tweets_to_label:
