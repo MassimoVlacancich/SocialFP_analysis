@@ -1,7 +1,6 @@
 import json
 import sys
-
-# check in json file
+from pymongo.errors import DuplicateKeyError
 from MongoUtils.MongoServices import MongoServices
 
 # make sure json file is in scope of git to go online
@@ -78,4 +77,7 @@ for tweet in tweets_to_label:
     else:
         classified_tweet = {"_id": tweet["_id"], "polarity": polarity}
         tweets_to_label.remove(tweet)
-        db.classified_tweets.insert_one(classified_tweet)
+        try:
+            db.classified_tweets.insert_one(classified_tweet)
+        except DuplicateKeyError as e:
+            print('Tweet already present in db, skipping')
